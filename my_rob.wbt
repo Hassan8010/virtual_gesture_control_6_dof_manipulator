@@ -1,0 +1,282 @@
+#VRML_SIM R2025a utf8
+
+WorldInfo {
+  title "6-DOF Manipulator Hand Control"
+  basicTimeStep 16
+}
+Viewpoint {
+  orientation 0.3468200819173997 -0.08070907957219772 -0.9344527142950663 3.6870997888761776
+  position 2.66469288507302 -1.4981039780119372 2.947124293661936
+}
+TexturedBackground {
+}
+TexturedBackgroundLight {
+}
+DEF FLOOR Solid {
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 0.25 0.25 0.3
+        roughness 1
+        metalness 0
+      }
+      geometry Plane {
+        size 6 6
+      }
+    }
+  ]
+  name "floor"
+  boundingObject Plane {
+    size 6 6
+  }
+}
+Robot {
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 0.1 0.1 0.1
+      }
+      geometry Cylinder {
+        height 0.05
+        radius 0.15
+      }
+    }
+    HingeJoint {
+      jointParameters HingeJointParameters {
+        position 1.795212976323669e-05
+        axis 0 0 1
+      }
+      device [
+        RotationalMotor {
+          name "motor1"
+          maxPosition 3.14
+        }
+      ]
+      endPoint Solid {
+        rotation 0 0 1 1.7952133363587545e-05
+        children [
+          Pose {
+            translation 0 0 0.05
+            children [
+              Shape {
+                appearance PBRAppearance {
+                  baseColor 0.2 0.2 0.2
+                }
+                geometry Cylinder {
+                  height 0.1
+                  radius 0.1
+                }
+              }
+            ]
+          }
+          HingeJoint {
+            jointParameters HingeJointParameters {
+              position -1.5699999998669862
+              axis 0 1 0
+              anchor 0 0 0.1
+            }
+            device [
+              RotationalMotor {
+                name "motor2"
+              }
+            ]
+            endPoint Solid {
+              translation 0 0 0.1
+              rotation 0 -1 0 1.5699999998669862
+              children [
+                Pose {
+                  translation 0 0 0.15
+                  children [
+                    Shape {
+                      appearance PBRAppearance {
+                        baseColor 0.8 0.1 0.1
+                      }
+                      geometry Box {
+                        size 0.06 0.06 0.3
+                      }
+                    }
+                  ]
+                }
+                HingeJoint {
+                  jointParameters HingeJointParameters {
+                    position -1.0645904192259574
+                    axis 0 1 0
+                    anchor 0 0 0.3
+                  }
+                  device [
+                    RotationalMotor {
+                      name "motor3"
+                    }
+                  ]
+                  endPoint Solid {
+                    translation 0 0 0.3
+                    rotation 0 -1 0 1.0645904192259577
+                    children [
+                      Pose {
+                        translation 0 0 0.125
+                        children [
+                          Shape {
+                            appearance PBRAppearance {
+                              baseColor 0.1 0.8 0.1
+                            }
+                            geometry Box {
+                              size 0.05 0.05 0.25
+                            }
+                          }
+                        ]
+                      }
+                      HingeJoint {
+                        jointParameters HingeJointParameters {
+                          axis 0 0 1
+                          anchor 0 0 0.25
+                        }
+                        device [
+                          RotationalMotor {
+                            name "motor4"
+                          }
+                        ]
+                        endPoint Solid {
+                          translation 0 0 0.25
+                          children [
+                            Pose {
+                              translation 0 0 0.04
+                              children [
+                                Shape {
+                                  appearance PBRAppearance {
+                                    baseColor 0.1 0.1 0.8
+                                  }
+                                  geometry Cylinder {
+                                    height 0.08
+                                    radius 0.04
+                                  }
+                                }
+                              ]
+                            }
+                            HingeJoint {
+                              jointParameters HingeJointParameters {
+                                position -1.4157542886485142
+                                axis 0 1 0
+                                anchor 0 0 0.08
+                              }
+                              device [
+                                RotationalMotor {
+                                  name "motor5"
+                                }
+                              ]
+                              endPoint Solid {
+                                translation 0 0 0.08
+                                rotation 0 -0.9999999999999999 0 1.4157542886485142
+                                children [
+                                  Shape {
+                                    appearance PBRAppearance {
+                                      baseColor 0.8 0.8 0.1
+                                    }
+                                    geometry Sphere {
+                                      radius 0.045
+                                    }
+                                  }
+                                  HingeJoint {
+                                    jointParameters HingeJointParameters {
+                                      axis 0 0 1
+                                      anchor 0 0 0.04
+                                    }
+                                    device [
+                                      RotationalMotor {
+                                        name "motor6"
+                                      }
+                                    ]
+                                    endPoint Solid {
+                                      translation 0 0 0.04
+                                      children [
+                                        Shape {
+                                          appearance PBRAppearance {
+                                            baseColor 0.3 0.3 0.3
+                                          }
+                                          geometry Box {
+                                            size 0.12 0.03 0.02
+                                          }
+                                        }
+                                        HingeJoint {
+                                          jointParameters HingeJointParameters {
+                                            position 0.2816002328525715
+                                            axis 0 1 0
+                                            anchor -0.05 0 0.01
+                                          }
+                                          device [
+                                            RotationalMotor {
+                                              name "left_finger"
+                                              maxPosition 0.4
+                                            }
+                                          ]
+                                          endPoint Solid {
+                                            translation -0.05 0 0.01
+                                            rotation 0 0.9999999999999999 0 0.2816002328525717
+                                            children [
+                                              Shape {
+                                                appearance PBRAppearance {
+                                                  baseColor 0.2 0.2 0.2
+                                                }
+                                                geometry Box {
+                                                  size 0.01 0.03 0.1
+                                                }
+                                              }
+                                            ]
+                                            name "finger_left"
+                                          }
+                                        }
+                                        HingeJoint {
+                                          jointParameters HingeJointParameters {
+                                            position -0.2816002328525715
+                                            axis 0 1 0
+                                            anchor 0.05 0 0.01
+                                          }
+                                          device [
+                                            RotationalMotor {
+                                              name "right_finger"
+                                              minPosition -0.4
+                                            }
+                                          ]
+                                          endPoint Solid {
+                                            translation 0.05 0 0.01
+                                            rotation 0 -0.9999999999999999 0 0.2816002328525717
+                                            children [
+                                              Shape {
+                                                appearance PBRAppearance {
+                                                  baseColor 0.2 0.2 0.2
+                                                }
+                                                geometry Box {
+                                                  size 0.01 0.03 0.1
+                                                }
+                                              }
+                                            ]
+                                            name "finger_right"
+                                          }
+                                        }
+                                      ]
+                                      name "link6"
+                                    }
+                                  }
+                                ]
+                                name "link5"
+                              }
+                            }
+                          ]
+                          name "link4"
+                        }
+                      }
+                    ]
+                    name "link3"
+                  }
+                }
+              ]
+              name "link2"
+            }
+          }
+        ]
+        name "link1"
+      }
+    }
+  ]
+  name "BraccioRobot"
+  controller "rob_receiver"
+}
